@@ -2,15 +2,15 @@
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // HOME: KPI mock coerenti con prodotti petroliferi
+  // KPI (index2)
   const kpiBox = document.getElementById("kpiBox");
   if (kpiBox) {
     const rnd = (min, max) => (Math.random() * (max - min) + min);
     const data = [
       { label: "Benzina Auto (EUR/L)", value: rnd(1.72, 1.85).toFixed(3) },
       { label: "Gasolio Auto (EUR/L)", value: rnd(1.62, 1.78).toFixed(3) },
+      { label: "Benzina Agricola (EUR/L)", value: rnd(1.10, 1.25).toFixed(3) },
       { label: "Gasolio Agricolo (EUR/L)", value: rnd(1.02, 1.18).toFixed(3) },
-      { label: "Gasolio Motopesca (EUR/L)", value: rnd(0.92, 1.05).toFixed(3) },
     ];
 
     kpiBox.innerHTML = data.map(d => `
@@ -21,30 +21,99 @@
     `).join("");
   }
 
-  // HOME: news mock (solo settore petrolifero)
-  const newsGrid = document.getElementById("newsGrid");
-  if (newsGrid) {
-    const items = [
-      { title: "Mercato carburanti: dinamiche di breve periodo", tag: "Carburanti", date: "Oggi" },
-      { title: "Logistica: impatti su approvvigionamento e distribuzione", tag: "Supply chain", date: "Questa settimana" },
-      { title: "Scenario macro e prezzi: fattori principali", tag: "Mercati", date: "Questa settimana" },
-      { title: "Focus agricoltura: stagionalità e consumi", tag: "Agricolo", date: "Questo mese" },
-      { title: "Motopesca: trend e disponibilità prodotto", tag: "Motopesca", date: "Questo mese" },
-      { title: "Normative e compliance: aggiornamenti di settore", tag: "Normative", date: "Questo trimestre" },
-    ];
+  // NEWS (index2) - box unico scrollabile + ricerca
+  const newsListEl = document.getElementById("newsList");
+  const newsQueryEl = document.getElementById("newsQuery");
 
-    newsGrid.innerHTML = items.map(n => `
-      <article class="card">
-        <div class="card__title">${n.title}</div>
-        <div class="muted">${n.tag} • ${n.date}</div>
-        <p class="muted" style="margin-top:10px">
-          Placeholder: nel prossimo step questi contenuti arriveranno da DB/API.
-        </p>
-      </article>
+  const NEWS = [
+    {
+      title: "Mercato carburanti: dinamiche di breve periodo",
+      tag: "Carburanti",
+      date: "Oggi",
+      snippet: "Sintesi placeholder: movimenti di prezzo e fattori di breve periodo sul mercato dei carburanti.",
+      url: "#"
+    },
+    {
+      title: "Logistica: impatti su approvvigionamento e distribuzione",
+      tag: "Supply chain",
+      date: "Questa settimana",
+      snippet: "Sintesi placeholder: disponibilità e tempi di consegna possono influire sulla distribuzione.",
+      url: "#"
+    },
+    {
+      title: "Scenario macro e prezzi: fattori principali",
+      tag: "Mercati",
+      date: "Questa settimana",
+      snippet: "Sintesi placeholder: fattori macro e volatilità contribuiscono alla formazione dei prezzi.",
+      url: "#"
+    },
+    {
+      title: "Focus agricoltura: stagionalità e consumi",
+      tag: "Agricolo",
+      date: "Questo mese",
+      snippet: "Sintesi placeholder: variazioni di consumo e stagionalità nell’uso agricolo dei carburanti.",
+      url: "#"
+    },
+    {
+      title: "Motopesca: trend e disponibilità prodotto",
+      tag: "Motopesca",
+      date: "Questo mese",
+      snippet: "Sintesi placeholder: domanda del settore e disponibilità del prodotto per motopesca.",
+      url: "#"
+    },
+    {
+      title: "Normative e compliance: aggiornamenti di settore",
+      tag: "Normative",
+      date: "Questo trimestre",
+      snippet: "Sintesi placeholder: aggiornamenti e best practice di compliance nel settore petrolifero.",
+      url: "#"
+    },
+  ];
+
+  function renderNews(list) {
+    if (!newsListEl) return;
+
+    newsListEl.innerHTML = list.map(n => `
+      <a class="newsRow" href="${n.url}" role="listitem" title="Apri articolo (demo)">
+        <div class="newsRow__meta">
+          <div class="newsRow__date">${n.date}</div>
+          <div class="newsRow__tag">${n.tag}</div>
+        </div>
+        <div class="newsRow__body">
+          <div class="newsRow__title">${n.title}</div>
+          <div class="newsRow__snippet">${n.snippet}</div>
+        </div>
+      </a>
     `).join("");
+
+    if (!list.length) {
+      newsListEl.innerHTML = `
+        <div style="padding:12px; color: rgba(245,255,249,.72)">
+          Nessun risultato per la ricerca (demo).
+        </div>
+      `;
+    }
   }
 
-  // PREZZI: tabella mock + “edit” demo
+  if (newsListEl) renderNews(NEWS);
+
+  function applyNewsFilter() {
+    const q = (newsQueryEl?.value || "").trim().toLowerCase();
+    if (!q) return renderNews(NEWS);
+
+    const filtered = NEWS.filter(n => {
+      const hay = `${n.title} ${n.tag} ${n.snippet}`.toLowerCase();
+      return hay.includes(q);
+    });
+
+    renderNews(filtered);
+  }
+
+  if (newsQueryEl) {
+    newsQueryEl.addEventListener("input", applyNewsFilter);
+  }
+
+  // PREZZI: tabella mock + edit demo
   const pricesTable = document.getElementById("pricesTable");
   const btnRefresh = document.getElementById("btnRefresh");
   const btnEdit = document.getElementById("btnEdit");
