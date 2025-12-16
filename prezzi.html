@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OilCo Energy — Prezzi</title>
+  <title>Crea Petroli — Prezzi</title>
   <link rel="stylesheet" href="./assets/styles.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="container topbar__inner">
       <div class="brand">
-        <div class="brand__logo">O</div>
+        <div class="brand__logo">CP</div>
         <div class="brand__text">
-          <div class="brand__name">OilCo Energy</div>
-          <div class="brand__tag">Notizie, prezzi, ordini</div>
+          <div class="brand__name">Crea Petroli</div>
+          <div class="brand__tag">Prodotti petroliferi • Listini • Ordini</div>
         </div>
       </div>
 
@@ -28,16 +28,15 @@
   <main class="container">
     <section class="section">
       <div class="section__head">
-        <h1>Prezzi giornalieri</h1>
+        <h1>Listino giornaliero</h1>
         <div class="muted">
-          Demo FE: i prezzi sono mock e “aggiornabili” localmente via UI.
-          In seguito li metteremo su DB.
+          Demo FE: prezzi mock. In seguito li aggiornerai da DB senza redeploy.
         </div>
       </div>
 
       <div class="toolbar">
-        <button class="btn" id="btnRefresh">Rigenera (mock)</button>
-        <button class="btn btn--ghost" id="btnEdit">Modifica prezzo (demo)</button>
+        <button class="btn" id="btnRefresh" type="button">Rigenera (mock)</button>
+        <button class="btn btn--ghost" id="btnEdit" type="button">Modifica prezzo (demo)</button>
       </div>
 
       <div class="card">
@@ -55,8 +54,9 @@
             <tbody><!-- JS --></tbody>
           </table>
         </div>
+
         <div class="card__hint muted">
-          Step futuro: CRUD su DB + storico + ruoli admin.
+          Prodotti: Benzina Auto, Gasolio Auto, Benzina Agricola, Gasolio Agricolo, Gasolio Motopesca (tutti in litri).
         </div>
       </div>
     </section>
@@ -64,7 +64,7 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <div>© <span id="year"></span> OilCo Energy</div>
+      <div>© <span id="year"></span> Crea Petroli</div>
       <div class="muted">Demo FE</div>
     </div>
   </footer>
