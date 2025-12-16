@@ -2,15 +2,15 @@
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // HOME: KPI + news mock
+  // HOME: KPI mock coerenti con prodotti petroliferi
   const kpiBox = document.getElementById("kpiBox");
   if (kpiBox) {
     const rnd = (min, max) => (Math.random() * (max - min) + min);
     const data = [
-      { label: "Brent (USD/bbl)", value: rnd(70, 95).toFixed(2) },
-      { label: "WTI (USD/bbl)", value: rnd(65, 92).toFixed(2) },
-      { label: "Gas (EUR/MWh)", value: rnd(28, 55).toFixed(2) },
-      { label: "CO₂ (EUR/t)", value: rnd(55, 90).toFixed(2) },
+      { label: "Benzina Auto (EUR/L)", value: rnd(1.72, 1.85).toFixed(3) },
+      { label: "Gasolio Auto (EUR/L)", value: rnd(1.62, 1.78).toFixed(3) },
+      { label: "Gasolio Agricolo (EUR/L)", value: rnd(1.02, 1.18).toFixed(3) },
+      { label: "Gasolio Motopesca (EUR/L)", value: rnd(0.92, 1.05).toFixed(3) },
     ];
 
     kpiBox.innerHTML = data.map(d => `
@@ -21,15 +21,16 @@
     `).join("");
   }
 
+  // HOME: news mock (solo settore petrolifero)
   const newsGrid = document.getElementById("newsGrid");
   if (newsGrid) {
     const items = [
-      { title: "Transizione energetica: trend 2026", tag: "Energie", date: "Oggi" },
-      { title: "Petrolio: fattori che influenzano i prezzi", tag: "Petrolio", date: "Ieri" },
-      { title: "Rinnovabili: nuovi investimenti e capacità", tag: "Energie", date: "Questa settimana" },
-      { title: "Logistica e supply chain: cosa cambia", tag: "Mercati", date: "Questa settimana" },
-      { title: "Analisi: domanda e offerta nel breve periodo", tag: "Petrolio", date: "Questo mese" },
-      { title: "Scenario macro: effetti su energia e commodities", tag: "Mercati", date: "Questo mese" },
+      { title: "Mercato carburanti: dinamiche di breve periodo", tag: "Carburanti", date: "Oggi" },
+      { title: "Logistica: impatti su approvvigionamento e distribuzione", tag: "Supply chain", date: "Questa settimana" },
+      { title: "Scenario macro e prezzi: fattori principali", tag: "Mercati", date: "Questa settimana" },
+      { title: "Focus agricoltura: stagionalità e consumi", tag: "Agricolo", date: "Questo mese" },
+      { title: "Motopesca: trend e disponibilità prodotto", tag: "Motopesca", date: "Questo mese" },
+      { title: "Normative e compliance: aggiornamenti di settore", tag: "Normative", date: "Questo trimestre" },
     ];
 
     newsGrid.innerHTML = items.map(n => `
@@ -37,7 +38,7 @@
         <div class="card__title">${n.title}</div>
         <div class="muted">${n.tag} • ${n.date}</div>
         <p class="muted" style="margin-top:10px">
-          Placeholder: in seguito caricheremo questi contenuti da DB e li gestiremo da backoffice.
+          Placeholder: nel prossimo step questi contenuti arriveranno da DB/API.
         </p>
       </article>
     `).join("");
@@ -52,13 +53,14 @@
     if (!pricesTable) return;
 
     const today = new Date().toISOString().slice(0, 10);
+
     const base = [
-      { product: "Diesel", unit: "L", currency: "EUR", price: 1.62 },
-      { product: "Gasoline", unit: "L", currency: "EUR", price: 1.74 },
-      { product: "Jet Fuel", unit: "L", currency: "EUR", price: 0.98 },
-      { product: "LPG", unit: "Kg", currency: "EUR", price: 0.92 },
-      { product: "Crude Brent", unit: "bbl", currency: "USD", price: 83.20 },
-    ].map(x => ({ ...x, price: (x.price * (0.98 + Math.random() * 0.06)) }));
+      { product: "Benzina Auto", unit: "L", currency: "EUR", price: 1.78 },
+      { product: "Gasolio Auto", unit: "L", currency: "EUR", price: 1.72 },
+      { product: "Benzina Agricola", unit: "L", currency: "EUR", price: 1.18 },
+      { product: "Gasolio Agricolo", unit: "L", currency: "EUR", price: 1.12 },
+      { product: "Gasolio Motopesca", unit: "L", currency: "EUR", price: 0.98 },
+    ].map(x => ({ ...x, price: (x.price * (0.98 + Math.random() * 0.04)) }));
 
     const tbody = pricesTable.querySelector("tbody");
     tbody.innerHTML = base.map(r => `
@@ -66,7 +68,7 @@
         <td>${r.product}</td>
         <td>${r.unit}</td>
         <td>${r.currency}</td>
-        <td class="right"><b>${r.price.toFixed(2)}</b></td>
+        <td class="right"><b>${r.price.toFixed(3)}</b></td>
         <td>${today}</td>
       </tr>
     `).join("");
@@ -82,20 +84,23 @@
       const prices = window.__prices || [];
       if (!prices.length) return;
 
-      const product = prompt("Quale prodotto vuoi modificare? (es. Diesel)");
+      const product = prompt("Quale prodotto vuoi modificare? (es. Gasolio Auto)");
       if (!product) return;
 
       const row = prices.find(p => p.product.toLowerCase() === product.toLowerCase());
       if (!row) return alert("Prodotto non trovato (demo).");
 
-      const newPriceStr = prompt(`Nuovo prezzo per ${row.product} (${row.currency}/${row.unit})`, String(row.price.toFixed(2)));
+      const newPriceStr = prompt(
+        `Nuovo prezzo per ${row.product} (${row.currency}/${row.unit})`,
+        String(row.price.toFixed(3))
+      );
       if (!newPriceStr) return;
 
       const newPrice = Number(newPriceStr.replace(",", "."));
       if (!Number.isFinite(newPrice) || newPrice <= 0) return alert("Prezzo non valido.");
 
       row.price = newPrice;
-      // rerender
+
       const tbody = pricesTable.querySelector("tbody");
       const today = new Date().toISOString().slice(0, 10);
       tbody.innerHTML = prices.map(r => `
@@ -103,7 +108,7 @@
           <td>${r.product}</td>
           <td>${r.unit}</td>
           <td>${r.currency}</td>
-          <td class="right"><b>${r.price.toFixed(2)}</b></td>
+          <td class="right"><b>${r.price.toFixed(3)}</b></td>
           <td>${today}</td>
         </tr>
       `).join("");
@@ -117,6 +122,7 @@
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
+
       const fd = new FormData(contactForm);
       const name = String(fd.get("name") || "");
       const email = String(fd.get("email") || "");
@@ -125,13 +131,12 @@
 
       if (contactStatus) contactStatus.textContent = "Richiesta acquisita (demo). Apertura client mail…";
 
-      const subject = encodeURIComponent("Richiesta informazioni — OilCo Energy");
+      const subject = encodeURIComponent("Richiesta informazioni — Crea Petroli");
       const body = encodeURIComponent(
         `Nome: ${name}\nEmail: ${email}\nTelefono: ${phone}\n\nMessaggio:\n${message}\n`
       );
 
-      // Demo: apre il client email. Step futuro: POST a API/DB.
-      window.location.href = `mailto:info@oilco.example?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:info@creapetroli.example?subject=${subject}&body=${body}`;
     });
   }
 })();
