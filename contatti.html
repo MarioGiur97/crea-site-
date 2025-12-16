@@ -1,1 +1,78 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OilCo Energy — Contatti</title>
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo">O</div>
+        <div class="brand__text">
+          <div class="brand__name">OilCo Energy</div>
+          <div class="brand__tag">Notizie, prezzi, ordini</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav__link" href="./index.html">Home</a>
+        <a class="nav__link" href="./prezzi.html">Prezzi</a>
+        <a class="nav__link nav__link--active" href="./contatti.html">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="section__head">
+        <h1>Contatti</h1>
+        <div class="muted">Per ora il form è FE-only (simulazione + mailto).</div>
+      </div>
+
+      <div class="grid grid--2">
+        <div class="card">
+          <div class="card__title">Recapiti</div>
+          <p><b>Telefono:</b> +39 000 000 000</p>
+          <p><b>Email:</b> info@oilco.example</p>
+          <p class="muted">Step futuro: invio via API + salvataggio su DB.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__title">Richiedi informazioni</div>
+
+          <form id="contactForm" class="form">
+            <label>Nome
+              <input name="name" required placeholder="Mario Rossi" />
+            </label>
+            <label>Email
+              <input name="email" type="email" required placeholder="mario@email.it" />
+            </label>
+            <label>Telefono (opzionale)
+              <input name="phone" placeholder="+39 ..." />
+            </label>
+            <label>Messaggio
+              <textarea name="message" required placeholder="Scrivi la tua richiesta..."></textarea>
+            </label>
+
+            <button class="btn" type="submit">Invia (demo)</button>
+            <div class="muted" id="contactStatus" style="margin-top:10px;"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> OilCo Energy</div>
+      <div class="muted">Demo FE</div>
+    </div>
+  </footer>
+
+  <script src="./assets/app.js"></script>
+</body>
+</html>
 
