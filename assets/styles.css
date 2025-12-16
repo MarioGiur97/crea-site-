@@ -1,13 +1,15 @@
 :root{
-  --bg:#0b1220;
-  --panel:#111a2e;
-  --card:#0f1a33;
-  --text:#eaf0ff;
-  --muted:rgba(234,240,255,.72);
-  --line:rgba(234,240,255,.14);
-  --brand:#4fd1c5;
-  --accent:#f4b41a;
+  --bg:#0f2f1f;              /* verde scuro */
+  --panel:#133b27;
+  --card:#174c32;
+  --text:#f5fff9;
+  --muted:rgba(245,255,249,.72);
+  --line:rgba(245,255,249,.18);
+
+  --brand:#1e7f4f;           /* verde aziendale */
+  --accent:#f4c20d;          /* giallo aziendale */
 }
+
 
 *{box-sizing:border-box}
 body{
