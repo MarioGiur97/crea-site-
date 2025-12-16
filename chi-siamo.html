@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Crea Petroli — Chi siamo</title>
+  <title>Crea Petroli — La nostra storia</title>
   <link rel="stylesheet" href="./assets/styles.css" />
 </head>
+
 <body>
   <header class="topbar">
     <div class="container topbar__inner">
@@ -27,100 +28,428 @@
     </div>
   </header>
 
-  <main class="container">
-    <!-- HERO PAGINA -->
-    <section class="section">
-      <div class="aboutHero">
-        <div class="aboutHero__left">
-          <div class="aboutHero__badge">Azienda</div>
-          <h1 class="aboutHero__title">Crea Petroli</h1>
-          <p class="aboutHero__subtitle">
-            Distribuzione e fornitura di <b>prodotti petroliferi</b> per mobilità, agricoltura e motopesca.
-            Questa sezione è un testo provvisorio (lo rifiniamo quando vuoi).
+  <main>
+    <!-- HERO -->
+    <section class="historyHero">
+      <div class="container">
+        <div class="historyHero__inner">
+          <div class="historyHero__kicker">Azienda</div>
+          <h1 class="historyHero__title">La nostra storia</h1>
+          <p class="historyHero__lead">
+            Crea Petroli nasce come realtà locale specializzata nella distribuzione di carburanti per mobilità e uso
+            professionale. Nel tempo consolida una rete di forniture dedicate a clienti privati, imprese agricole e
+            operatori del settore marittimo.
           </p>
 
-          <div class="aboutHero__cta">
-            <a class="btn" href="./prezzi.html">Consulta i prezzi</a>
-            <a class="btn btn--ghost" href="./contatti.html">Richiedi info</a>
+          <div class="historyHero__cta">
+            <a class="btn" href="./prezzi.html">Consulta il listino</a>
+            <a class="btn btn--ghost" href="./contatti.html">Richiedi informazioni</a>
           </div>
-        </div>
 
-        <div class="aboutHero__right">
-          <div class="miniCard">
-            <div class="miniCard__label">Focus</div>
-            <div class="miniCard__value">Carburanti e prodotti petroliferi</div>
-          </div>
-          <div class="miniCard">
-            <div class="miniCard__label">Clienti</div>
-            <div class="miniCard__value">Privati • Agricoltura • Settore marittimo</div>
-          </div>
-          <div class="miniCard">
-            <div class="miniCard__label">Obiettivo</div>
-            <div class="miniCard__value">Trasparenza listini e servizio affidabile</div>
+          <div class="historyHero__note">
+            Testo provvisorio (placeholder): lo rendiamo definitivo quando vuoi.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SEZIONI PRINCIPALI -->
-    <section class="section">
-      <div class="section__head">
-        <h2>La nostra storia</h2>
-        <div class="muted">Sintesi (placeholder)</div>
-      </div>
+    <!-- INTRO + QUICK FACTS -->
+    <section class="historyIntro">
+      <div class="container">
+        <div class="historyIntro__grid">
+          <div class="historyIntro__text card">
+            <div class="card__title">Chi siamo</div>
+            <p class="muted historyP">
+              Oggi Crea Petroli si concentra esclusivamente su prodotti petroliferi, con attenzione alla continuità di
+              approvvigionamento, alla trasparenza del listino e all’efficienza del servizio.
+            </p>
+            <p class="muted historyP">
+              Stiamo progressivamente digitalizzando i processi: dalla consultazione dei prezzi fino alla gestione
+              delle richieste e, in futuro, degli ordini online.
+            </p>
+          </div>
 
-      <div class="aboutGrid">
-        <article class="card aboutCard">
-          <div class="aboutCard__title">Origini</div>
-          <p class="muted aboutCard__text">
-            Crea Petroli nasce come realtà locale specializzata nella distribuzione di carburanti.
-            Nel tempo consolida una rete di forniture dedicate a clienti privati e professionali.
-          </p>
-        </article>
+          <div class="historyIntro__facts">
+            <div class="fact card">
+              <div class="fact__label">Focus</div>
+              <div class="fact__value">Prodotti petroliferi</div>
+              <div class="muted fact__desc">Niente luce, energia o servizi non petroliferi.</div>
+            </div>
 
-        <article class="card aboutCard">
-          <div class="aboutCard__title">Evoluzione</div>
-          <p class="muted aboutCard__text">
-            L’azienda focalizza il proprio business su prodotti petroliferi, con attenzione a
-            continuità di approvvigionamento, tempi di servizio e qualità del supporto.
-          </p>
-        </article>
+            <div class="fact card">
+              <div class="fact__label">Settori</div>
+              <div class="fact__value">Auto • Agricolo • Motopesca</div>
+              <div class="muted fact__desc">Listini coerenti per le tre aree.</div>
+            </div>
 
-        <article class="card aboutCard">
-          <div class="aboutCard__title">Oggi</div>
-          <p class="muted aboutCard__text">
-            Trasparenza dei listini, gestione richieste e (a step) digitalizzazione:
-            dalla consultazione prezzi fino agli ordini online.
-          </p>
-        </article>
+            <div class="fact card">
+              <div class="fact__label">Obiettivo</div>
+              <div class="fact__value">Affidabilità & trasparenza</div>
+              <div class="muted fact__desc">Servizio semplice e chiaro.</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section__head">
-        <h2>Cosa facciamo</h2>
-        <div class="muted">Servizi principali</div>
+    <!-- TIMELINE -->
+    <section class="historyTimeline">
+      <div class="container">
+        <div class="timelineHead">
+          <h2 class="timelineHead__title">Le tappe principali</h2>
+          <div class="muted">Timeline (placeholder, stile “la nostra storia”)</div>
+        </div>
+
+        <div class="timeline">
+          <!-- ITEM 1 -->
+          <article class="timelineItem">
+            <div class="timelineItem__left">
+              <div class="timelineYear">200X</div>
+              <div class="timelineDot" aria-hidden="true"></div>
+              <div class="timelineLine" aria-hidden="true"></div>
+            </div>
+            <div class="timelineItem__right card">
+              <div class="timelineItem__title">Origini</div>
+              <p class="muted historyP">
+                Crea Petroli nasce come realtà locale specializzata nella distribuzione di carburanti.
+                Prime forniture per mobilità e supporto a clientela professionale.
+              </p>
+              <div class="timelineTags">
+                <span class="tag">Distribuzione</span>
+                <span class="tag">Carburanti</span>
+                <span class="tag">Servizio locale</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ITEM 2 -->
+          <article class="timelineItem">
+            <div class="timelineItem__left">
+              <div class="timelineYear">201X</div>
+              <div class="timelineDot" aria-hidden="true"></div>
+              <div class="timelineLine" aria-hidden="true"></div>
+            </div>
+            <div class="timelineItem__right card">
+              <div class="timelineItem__title">Consolidamento forniture</div>
+              <p class="muted historyP">
+                L’azienda consolida una rete di forniture dedicate a clienti privati, imprese agricole
+                e operatori del settore marittimo.
+              </p>
+              <div class="timelineTags">
+                <span class="tag">Privati</span>
+                <span class="tag">Agricoltura</span>
+                <span class="tag">Motopesca</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ITEM 3 -->
+          <article class="timelineItem">
+            <div class="timelineItem__left">
+              <div class="timelineYear">202X</div>
+              <div class="timelineDot" aria-hidden="true"></div>
+              <div class="timelineLine timelineLine--end" aria-hidden="true"></div>
+            </div>
+            <div class="timelineItem__right card">
+              <div class="timelineItem__title">Trasparenza listini & digitalizzazione</div>
+              <p class="muted historyP">
+                Focus esclusivo su prodotti petroliferi, con attenzione alla continuità di
+                approvvigionamento, trasparenza del listino e miglioramento del servizio.
+                Avvio della digitalizzazione: consultazione prezzi, richieste e, in futuro, ordini online.
+              </p>
+              <div class="timelineTags">
+                <span class="tag">Listini</span>
+                <span class="tag">Affidabilità</span>
+                <span class="tag">Digitale</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- VALUES BLOCK -->
+        <div class="valuesBlock card">
+          <div class="valuesBlock__head">
+            <div class="card__title">I nostri valori</div>
+            <div class="muted">Come lavoriamo (placeholder)</div>
+          </div>
+
+          <div class="valuesGrid">
+            <div class="value card">
+              <div class="value__title">Affidabilità</div>
+              <div class="muted">Continuità e puntualità nel servizio e nella fornitura.</div>
+            </div>
+            <div class="value card">
+              <div class="value__title">Trasparenza</div>
+              <div class="muted">Listini chiari e comunicazione semplice.</div>
+            </div>
+            <div class="value card">
+              <div class="value__title">Operatività</div>
+              <div class="muted">Processi snelli e orientati al risultato.</div>
+            </div>
+            <div class="value card">
+              <div class="value__title">Cura del cliente</div>
+              <div class="muted">Risposte rapide e supporto dedicato.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FINAL CTA -->
+        <div class="historyCta card">
+          <div class="historyCta__text">
+            <div class="historyCta__title">Vuoi maggiori informazioni?</div>
+            <div class="muted">Scrivici: ti rispondiamo con i dettagli necessari.</div>
+          </div>
+          <div class="historyCta__actions">
+            <a class="btn" href="./contatti.html">Contattaci</a>
+            <a class="btn btn--ghost" href="./prezzi.html">Vedi prezzi</a>
+          </div>
+        </div>
+
       </div>
+    </section>
+  </main>
 
-      <div class="aboutGrid2">
-        <div class="card featureCard">
-          <div class="featureCard__icon">1</div>
-          <div class="featureCard__content">
-            <div class="featureCard__title">Listini carburanti</div>
-            <div class="muted">Pubblicazione e aggiornamento del listino giornaliero.</div>
-          </div>
-        </div>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> Crea Petroli</div>
+      <div class="muted">Demo FE</div>
+    </div>
+  </footer>
 
-        <div class="card featureCard">
-          <div class="featureCard__icon">2</div>
-          <div class="featureCard__content">
-            <div class="featureCard__title">Forniture dedicate</div>
-            <div class="muted">Soluzioni per uso auto, agricolo e motopesca.</div>
-          </div>
-        </div>
+  <script src="./assets/app.js"></script>
 
-        <div class="card featureCard">
-          <div class="featureCard__icon">3</div>
-          <div class="featureCard__content">
-            <div class="featureCard__title">Assistenza e richieste</div>
-            <div class="muted">Canale contatti per informazioni e supporto
+  <!-- Stile dedicato SOLO a questa pagina -->
+  <style>
+    /* HERO */
+    .historyHero{
+      padding: 42px 0 22px;
+      background:
+        radial-gradient(900px 500px at 10% 10%, rgba(244,194,13,.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 30%, rgba(30,127,79,.28), transparent 60%),
+        rgba(15,47,31,.30);
+      border-bottom: 1px solid rgba(245,255,249,.12);
+    }
+    .historyHero__inner{
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .historyHero__kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: rgba(245,255,249,.80);
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(245,255,249,.16);
+      background: rgba(255,255,255,.05);
+    }
+    .historyHero__title{
+      margin: 12px 0 0;
+      font-size: 40px;
+      font-weight: 950;
+      letter-spacing: .2px;
+      line-height: 1.1;
+    }
+    .historyHero__lead{
+      margin: 14px 0 0;
+      max-width: 70ch;
+      color: rgba(245,255,249,.78);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    .historyHero__cta{
+      margin-top: 16px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .historyHero__note{
+      margin-top: 14px;
+      color: rgba(245,255,249,.65);
+      font-size: 12px;
+    }
+
+    /* INTRO */
+    .historyIntro{ padding: 18px 0 10px; }
+    .historyIntro__grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .historyIntro__text{ padding: 18px; }
+    .historyP{ margin: 0 0 10px; }
+    .historyP:last-child{ margin-bottom: 0; }
+
+    .historyIntro__facts{
+      display:grid;
+      gap: 12px;
+    }
+    .fact{ padding: 14px; }
+    .fact__label{
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: rgba(245,255,249,.70);
+    }
+    .fact__value{
+      margin-top: 8px;
+      font-weight: 950;
+      font-size: 16px;
+      line-height: 1.2;
+    }
+    .fact__desc{
+      margin-top: 6px;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    /* TIMELINE */
+    .historyTimeline{ padding: 10px 0 34px; }
+    .timelineHead{
+      display:flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding-top: 6px;
+    }
+    .timelineHead__title{
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: .2px;
+    }
+
+    .timeline{
+      margin-top: 14px;
+      display:grid;
+      gap: 14px;
+    }
+    .timelineItem{
+      display:grid;
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .timelineItem__left{
+      position: relative;
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10px;
+    }
+    .timelineYear{
+      font-weight: 950;
+      letter-spacing: .2px;
+      color: rgba(245,255,249,.88);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(245,255,249,.14);
+      padding: 8px 10px;
+      border-radius: 14px;
+      width: 96px;
+      text-align: center;
+    }
+    .timelineDot{
+      margin-top: 10px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #ffd84d);
+      border: 1px solid #e6b800;
+      box-shadow: 0 10px 18px rgba(0,0,0,.18);
+      z-index: 1;
+    }
+    .timelineLine{
+      width: 2px;
+      flex: 1 1 auto;
+      background: rgba(245,255,249,.14);
+      margin-top: 8px;
+      border-radius: 2px;
+    }
+    .timelineLine--end{ background: transparent; }
+
+    .timelineItem__right{ padding: 16px; }
+    .timelineItem__title{
+      font-weight: 950;
+      margin-bottom: 8px;
+      letter-spacing: .2px;
+    }
+    .timelineTags{
+      margin-top: 12px;
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tag{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(244,194,13,.12);
+      border: 1px solid rgba(244,194,13,.28);
+      color: rgba(245,255,249,.88);
+      white-space: nowrap;
+    }
+
+    /* VALUES */
+    .valuesBlock{
+      margin-top: 14px;
+      padding: 16px;
+    }
+    .valuesBlock__head{
+      display:flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .valuesGrid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .value{
+      padding: 14px;
+      background: rgba(255,255,255,.05);
+    }
+    .value__title{
+      font-weight: 950;
+      margin-bottom: 8px;
+    }
+
+    /* FINAL CTA */
+    .historyCta{
+      margin-top: 14px;
+      padding: 16px;
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .historyCta__title{
+      font-weight: 950;
+      margin-bottom: 6px;
+    }
+    .historyCta__actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    @media (max-width: 980px){
+      .historyIntro__grid{ grid-template-columns: 1fr; }
+      .timelineItem{ grid-template-columns: 90px 1fr; }
+      .valuesGrid{ grid-template-columns: 1fr; }
+      .historyCta{ flex-direction: column; align-items: flex-start; }
+      .historyCta__actions{ justify-content: flex-start; }
+      .historyHero__title{ font-size: 34px; }
+    }
+  </style>
+</body>
+</html>
