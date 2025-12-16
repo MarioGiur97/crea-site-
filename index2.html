@@ -20,7 +20,8 @@
       </div>
 
       <nav class="nav">
-        <a class="nav__link nav__link--active" href="./index.html">Home</a>
+        <a class="nav__link" href="./index.html">Start</a>
+        <a class="nav__link nav__link--active" href="./index2.html">Home</a>
         <a class="nav__link" href="./chi-siamo.html">Chi siamo</a>
         <a class="nav__link" href="./prezzi.html">Prezzi</a>
         <a class="nav__link" href="./contatti.html">Contatti</a>
@@ -42,23 +43,11 @@
         </div>
       </div>
 
-      <div class="hero__right card horseCard">
-        <div class="horseCard__head">
-          <div class="card__title">Simbolo aziendale</div>
-          <div class="pill">Cavallo rampante</div>
-        </div>
-
-        <!-- Cavallo rampante (SVG inline) -->
-        <div class="horseWrap" aria-label="Cavallo rampante">
-          <svg class="horse" viewBox="0 0 64 64" role="img" aria-label="Cavallo rampante">
-            <!-- silhouette semplice (stile logo) -->
-            <path d="M42 8c-3 1-5 3-6 6l-1 4-6 4-5-3-4 2 2 5 6 4-2 6-6 5-1 8 5 1 4-6 4-3 2 5-5 7 2 6 6-3 4-9 5 2 2 6 7 2 2-6-6-5-3-9 2-7 6-7 2-9-5-2-4 4-3-2-1-4 3-4-1-5z"/>
-          </svg>
-        </div>
-
-        <div class="muted" style="margin-top:10px">
-          Posizionamento provvisorio per l’esercizio: lo renderemo più “brand-like” appena mi dici
-          se preferisci il cavallo nel logo oppure come elemento hero.
+      <div class="hero__right card">
+        <div class="card__title">Snapshot listino (demo)</div>
+        <div class="kpis" id="kpiBox"><!-- JS --></div>
+        <div class="card__hint muted">
+          Valori mock (Step futuro: dati reali da DB).
         </div>
       </div>
     </section>
@@ -66,4 +55,37 @@
     <section class="section">
       <div class="section__head">
         <h2>Notizie di settore petrolifero</h2>
-        <div class="muted">Feed mock (Step futuro: DB/API)</d
+        <div class="muted">Feed mock (Step futuro: DB/API)</div>
+      </div>
+      <div class="grid" id="newsGrid"><!-- JS --></div>
+    </section>
+
+    <section class="section">
+      <div class="section__head">
+        <h2>Recapiti</h2>
+        <div class="muted">Contatti rapidi</div>
+      </div>
+
+      <div class="grid grid--2">
+        <div class="card">
+          <div class="card__title">Telefono</div>
+          <p class="muted">+39 000 000 000</p>
+        </div>
+        <div class="card">
+          <div class="card__title">Email</div>
+          <p class="muted">info@creapetroli.example</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> Crea Petroli</div>
+      <div class="muted">Demo FE — responsive web/mobile</div>
+    </div>
+  </footer>
+
+  <script src="./assets/app.js"></script>
+</body>
+</html>
