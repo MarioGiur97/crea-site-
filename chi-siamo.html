@@ -6,7 +6,9 @@
   <title>Crea Petroli — La nostra storia</title>
   <link rel="stylesheet" href="./assets/styles.css" />
 </head>
+
 <body>
+  <!-- Overlay + Drawer (mobile) -->
   <div id="drawerOverlay" class="drawerOverlay" aria-hidden="true"></div>
   <aside id="drawer" class="drawer" aria-hidden="true">
     <div class="drawer__head">
@@ -19,6 +21,9 @@
       <a class="drawer__link drawer__link--active" href="./chi-siamo.html">Chi siamo</a>
       <a class="drawer__link" href="./prezzi.html">Prezzi</a>
       <a class="drawer__link" href="./contatti.html">Contatti</a>
+      <div class="drawer__hint">
+        Da mobile usa il menu per navigare. (Demo FE)
+      </div>
     </div>
   </aside>
 
@@ -32,6 +37,7 @@
         </div>
       </div>
 
+      <!-- Desktop nav -->
       <nav class="nav">
         <a class="nav__link" href="./index.html">Start</a>
         <a class="nav__link" href="./index2.html">Home</a>
@@ -40,6 +46,7 @@
         <a class="nav__link" href="./contatti.html">Contatti</a>
       </nav>
 
+      <!-- Mobile hamburger -->
       <button id="btnMenuOpen" class="hamburger" type="button" aria-label="Apri menu" aria-expanded="false">
         <span class="hamburger__bar"></span>
         <span class="hamburger__bar"></span>
@@ -48,105 +55,53 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="section">
-      <div class="card" style="padding:18px">
-        <div style="font-size:12px; font-weight:900; letter-spacing:.10em; text-transform:uppercase; color:rgba(245,255,249,.75);">
-          Azienda
-        </div>
-        <h1 style="margin:10px 0 0; font-size:36px; font-weight:950; letter-spacing:.2px;">La nostra storia</h1>
-        <p class="muted" style="margin:12px 0 0; line-height:1.7; max-width:72ch;">
-          Crea Petroli nasce come realtà locale specializzata nella distribuzione di carburanti per mobilità e uso
-          professionale. Nel tempo consolida una rete di forniture dedicate a clienti privati, imprese agricole e
-          operatori del settore marittimo.
-        </p>
-        <p class="muted" style="margin:10px 0 0; line-height:1.7; max-width:72ch;">
-          Oggi Crea Petroli si concentra esclusivamente su prodotti petroliferi, con attenzione alla continuità di
-          approvvigionamento, alla trasparenza del listino e all’efficienza del servizio. In parallelo, avviamo la
-          digitalizzazione dei processi: consultazione prezzi, richieste e (a step) ordini online.
-        </p>
+  <main>
+    <!-- HERO -->
+    <section class="historyHero">
+      <div class="container">
+        <div class="historyHero__inner">
+          <div class="historyHero__kicker">Azienda</div>
+          <h1 class="historyHero__title">La nostra storia</h1>
+          <p class="historyHero__lead">
+            Crea Petroli nasce come realtà locale specializzata nella distribuzione di carburanti per mobilità e uso
+            professionale. Nel tempo consolida una rete di forniture dedicate a clienti privati, imprese agricole e
+            operatori del settore marittimo.
+          </p>
 
-        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn" href="./prezzi.html">Consulta il listino</a>
-          <a class="btn btn--ghost" href="./contatti.html">Richiedi informazioni</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section__head">
-        <h2>Le tappe principali</h2>
-        <div class="muted">Timeline (placeholder)</div>
-      </div>
-
-      <div class="card" style="padding:0; overflow:hidden;">
-        <div style="padding:14px 16px; border-bottom:1px solid rgba(245,255,249,.12); font-weight:900;">
-          200X — Origini
-        </div>
-        <div style="padding:14px 16px;">
-          <div class="muted" style="line-height:1.7;">
-            Avvio come realtà locale: prime forniture carburanti e supporto a clientela professionale.
+          <div class="historyHero__cta">
+            <a class="btn" href="./prezzi.html">Consulta il listino</a>
+            <a class="btn btn--ghost" href="./contatti.html">Richiedi informazioni</a>
           </div>
-        </div>
 
-        <div style="border-top:1px solid rgba(245,255,249,.10);"></div>
-
-        <div style="padding:14px 16px; border-bottom:1px solid rgba(245,255,249,.12); font-weight:900;">
-          201X — Consolidamento forniture
-        </div>
-        <div style="padding:14px 16px;">
-          <div class="muted" style="line-height:1.7;">
-            Rete di forniture dedicate a privati, imprese agricole e operatori marittimi.
-          </div>
-        </div>
-
-        <div style="border-top:1px solid rgba(245,255,249,.10);"></div>
-
-        <div style="padding:14px 16px; border-bottom:1px solid rgba(245,255,249,.12); font-weight:900;">
-          202X — Trasparenza e digitale
-        </div>
-        <div style="padding:14px 16px;">
-          <div class="muted" style="line-height:1.7;">
-            Focus su prodotti petroliferi, listini chiari e avvio della digitalizzazione (prezzi, richieste, ordini).
+          <div class="historyHero__note">
+            Testo provvisorio (placeholder): lo rendiamo definitivo quando vuoi.
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section__head">
-        <h2>Valori</h2>
-        <div class="muted">Come lavoriamo</div>
-      </div>
+    <!-- INTRO + QUICK FACTS -->
+    <section class="historyIntro">
+      <div class="container">
+        <div class="historyIntro__grid">
+          <div class="historyIntro__text card">
+            <div class="card__title">Chi siamo</div>
+            <p class="muted historyP">
+              Oggi Crea Petroli si concentra esclusivamente su prodotti petroliferi, con attenzione alla continuità di
+              approvvigionamento, alla trasparenza del listino e all’efficienza del servizio.
+            </p>
+            <p class="muted historyP">
+              Stiamo progressivamente digitalizzando i processi: dalla consultazione dei prezzi fino alla gestione
+              delle richieste e, in futuro, degli ordini online.
+            </p>
+          </div>
 
-      <div class="grid grid--2">
-        <div class="card" style="background: rgba(255,255,255,.05);">
-          <div class="card__title">Affidabilità</div>
-          <div class="muted">Continuità e puntualità nel servizio e nella fornitura.</div>
-        </div>
-        <div class="card" style="background: rgba(255,255,255,.05);">
-          <div class="card__title">Trasparenza</div>
-          <div class="muted">Listini chiari e comunicazione semplice.</div>
-        </div>
-        <div class="card" style="background: rgba(255,255,255,.05);">
-          <div class="card__title">Operatività</div>
-          <div class="muted">Processi snelli e orientati al risultato.</div>
-        </div>
-        <div class="card" style="background: rgba(255,255,255,.05);">
-          <div class="card__title">Cura del cliente</div>
-          <div class="muted">Risposte rapide e supporto dedicato.</div>
-        </div>
-      </div>
-    </section>
-  </main>
+          <div class="historyIntro__facts">
+            <div class="fact card">
+              <div class="fact__label">Focus</div>
+              <div class="fact__value">Prodotti petroliferi</div>
+              <div class="muted fact__desc">Niente luce o servizi energetici non petroliferi.</div>
+            </div>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div>© <span id="year"></span> Crea Petroli</div>
-      <div class="muted">Demo FE</div>
-    </div>
-  </footer>
-
-  <script src="./assets/app.js"></script>
-</body>
-</html>
+            <div class="fact card">
+              <div class="fact__label">Settori</div>
