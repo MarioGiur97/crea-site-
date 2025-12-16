@@ -3,7 +3,46 @@
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  /* KPI HOME */
+  /* =========================
+     MOBILE MENU (hamburger)
+     ========================= */
+  const btnMenuOpen = document.getElementById("btnMenuOpen");
+  const btnMenuClose = document.getElementById("btnMenuClose");
+  const drawerOverlay = document.getElementById("drawerOverlay");
+  const drawer = document.getElementById("drawer");
+
+  function openMenu() {
+    document.body.classList.add("menuOpen");
+    if (btnMenuOpen) btnMenuOpen.setAttribute("aria-expanded", "true");
+    if (drawer) drawer.setAttribute("aria-hidden", "false");
+  }
+
+  function closeMenu() {
+    document.body.classList.remove("menuOpen");
+    if (btnMenuOpen) btnMenuOpen.setAttribute("aria-expanded", "false");
+    if (drawer) drawer.setAttribute("aria-hidden", "true");
+  }
+
+  if (btnMenuOpen) btnMenuOpen.addEventListener("click", openMenu);
+  if (btnMenuClose) btnMenuClose.addEventListener("click", closeMenu);
+  if (drawerOverlay) drawerOverlay.addEventListener("click", closeMenu);
+
+  // Chiudi su ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  // Chiudi quando clicchi una voce del menu (se presente)
+  document.addEventListener("click", (e) => {
+    const target = e.target;
+    if (target && target.classList && target.classList.contains("drawer__link")) {
+      closeMenu();
+    }
+  });
+
+  /* =========================
+     KPI HOME (index2)
+     ========================= */
   const kpiBox = document.getElementById("kpiBox");
   if (kpiBox) {
     const rnd = (min, max) => (Math.random() * (max - min) + min);
@@ -23,9 +62,8 @@
   }
 
   /* =========================
-     ULTIME NOTIZIE – CONTENUTI ESEMPLIFICATIVI
+     ULTIME NOTIZIE (index2)
      ========================= */
-
   const newsListEl = document.getElementById("newsList");
   const newsQueryEl = document.getElementById("newsQuery");
 
@@ -35,9 +73,8 @@
       tag: "Carburanti",
       date: "Oggi",
       snippet:
-        "Nel corso della settimana i prezzi dei carburanti mostrano una moderata volatilità, "
-        + "influenzata dall’andamento delle quotazioni internazionali e dai costi di approvvigionamento. "
-        + "Il mercato resta stabile, con variazioni contenute sui principali prodotti petroliferi.",
+        "Prezzi con volatilità moderata, influenzata dalle quotazioni internazionali e dai costi di approvvigionamento. "
+        + "Variazioni contenute sui principali prodotti petroliferi.",
       url: "#"
     },
     {
@@ -45,9 +82,8 @@
       tag: "Supply chain",
       date: "Questa settimana",
       snippet:
-        "La gestione della catena di fornitura resta un elemento centrale per garantire continuità "
-        + "e affidabilità del servizio. Le attività di pianificazione logistica consentono di "
-        + "ridurre l’impatto delle oscillazioni di mercato e assicurare disponibilità di prodotto.",
+        "Pianificazione logistica e gestione scorte per garantire disponibilità di prodotto e ridurre gli impatti "
+        + "delle oscillazioni di mercato.",
       url: "#"
     },
     {
@@ -55,9 +91,7 @@
       tag: "Mercati",
       date: "Questa settimana",
       snippet:
-        "Fattori macroeconomici e dinamiche internazionali continuano a influenzare il mercato petrolifero. "
-        + "Le quotazioni risentono del contesto globale, con attenzione particolare alla domanda e "
-        + "alle politiche di produzione.",
+        "Dinamiche internazionali e domanda globale influenzano le quotazioni. Attenzione a fattori macro e volatilità.",
       url: "#"
     },
     {
@@ -65,9 +99,8 @@
       tag: "Agricolo",
       date: "Questo mese",
       snippet:
-        "Nel periodo stagionale aumenta la domanda di carburanti per uso agricolo. "
-        + "La programmazione delle forniture e la trasparenza dei listini rappresentano "
-        + "un fattore chiave per supportare le attività del settore.",
+        "Durante i picchi stagionali cresce la richiesta. Trasparenza dei listini e programmazione delle forniture "
+        + "supportano le attività del settore.",
       url: "#"
     },
     {
@@ -75,8 +108,7 @@
       tag: "Motopesca",
       date: "Questo mese",
       snippet:
-        "Il comparto motopesca richiede continuità di approvvigionamento e stabilità dei prezzi. "
-        + "Le dinamiche di consumo seguono l’andamento stagionale e le attività operative delle flotte.",
+        "Continuità di approvvigionamento e stabilità: le dinamiche seguono l’andamento delle attività operative delle flotte.",
       url: "#"
     },
     {
@@ -84,9 +116,7 @@
       tag: "Normative",
       date: "Questo trimestre",
       snippet:
-        "Il quadro normativo del settore petrolifero è in costante evoluzione. "
-        + "Rimanere aggiornati sulle disposizioni vigenti è fondamentale per garantire "
-        + "operatività conforme e processi trasparenti.",
+        "Quadro normativo in evoluzione: aggiornamento continuo per garantire operatività conforme e processi trasparenti.",
       url: "#"
     }
   ];
@@ -121,27 +151,21 @@
 
   function applyNewsFilter() {
     const q = (newsQueryEl?.value || "").trim().toLowerCase();
-    if (!q) {
-      renderNews(NEWS);
-      return;
-    }
+    if (!q) return renderNews(NEWS);
 
     const filtered = NEWS.filter(n => {
-      const haystack = `${n.title} ${n.tag} ${n.snippet}`.toLowerCase();
-      return haystack.includes(q);
+      const hay = `${n.title} ${n.tag} ${n.snippet}`.toLowerCase();
+      return hay.includes(q);
     });
 
     renderNews(filtered);
   }
 
-  if (newsQueryEl) {
-    newsQueryEl.addEventListener("input", applyNewsFilter);
-  }
+  if (newsQueryEl) newsQueryEl.addEventListener("input", applyNewsFilter);
 
   /* =========================
-     PREZZI (come prima)
+     PREZZI
      ========================= */
-
   const pricesTable = document.getElementById("pricesTable");
   const btnRefresh = document.getElementById("btnRefresh");
   const btnEdit = document.getElementById("btnEdit");
@@ -150,7 +174,6 @@
     if (!pricesTable) return;
 
     const today = new Date().toISOString().slice(0, 10);
-
     const base = [
       { product: "Benzina Auto", unit: "L", currency: "EUR", price: 1.78 },
       { product: "Gasolio Auto", unit: "L", currency: "EUR", price: 1.72 },
@@ -176,4 +199,65 @@
   if (pricesTable) renderPrices();
   if (btnRefresh) btnRefresh.addEventListener("click", renderPrices);
 
+  if (btnEdit) {
+    btnEdit.addEventListener("click", () => {
+      const prices = window.__prices || [];
+      if (!prices.length) return;
+
+      const product = prompt("Quale prodotto vuoi modificare? (es. Gasolio Auto)");
+      if (!product) return;
+
+      const row = prices.find(p => p.product.toLowerCase() === product.toLowerCase());
+      if (!row) return alert("Prodotto non trovato (demo).");
+
+      const newPriceStr = prompt(
+        `Nuovo prezzo per ${row.product} (${row.currency}/${row.unit})`,
+        String(row.price.toFixed(3))
+      );
+      if (!newPriceStr) return;
+
+      const newPrice = Number(newPriceStr.replace(",", "."));
+      if (!Number.isFinite(newPrice) || newPrice <= 0) return alert("Prezzo non valido.");
+
+      row.price = newPrice;
+
+      const tbody = pricesTable.querySelector("tbody");
+      const today = new Date().toISOString().slice(0, 10);
+      tbody.innerHTML = prices.map(r => `
+        <tr>
+          <td>${r.product}</td>
+          <td>${r.unit}</td>
+          <td>${r.currency}</td>
+          <td class="right"><b>${r.price.toFixed(3)}</b></td>
+          <td>${today}</td>
+        </tr>
+      `).join("");
+    });
+  }
+
+  /* =========================
+     CONTATTI
+     ========================= */
+  const contactForm = document.getElementById("contactForm");
+  const contactStatus = document.getElementById("contactStatus");
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const fd = new FormData(contactForm);
+      const name = String(fd.get("name") || "");
+      const email = String(fd.get("email") || "");
+      const phone = String(fd.get("phone") || "");
+      const message = String(fd.get("message") || "");
+
+      if (contactStatus) contactStatus.textContent = "Richiesta acquisita (demo). Apertura client mail…";
+
+      const subject = encodeURIComponent("Richiesta informazioni — Crea Petroli");
+      const body = encodeURIComponent(
+        `Nome: ${name}\nEmail: ${email}\nTelefono: ${phone}\n\nMessaggio:\n${message}\n`
+      );
+
+      window.location.href = `mailto:info@creapetroli.example?subject=${subject}&body=${body}`;
+    });
+  }
 })();
