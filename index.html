@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OilCo Energy — Home</title>
+  <title>Crea Petroli — Home</title>
   <link rel="stylesheet" href="./assets/styles.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="container topbar__inner">
       <div class="brand">
-        <div class="brand__logo">O</div>
+        <div class="brand__logo">CP</div>
         <div class="brand__text">
-          <div class="brand__name">OilCo Energy</div>
-          <div class="brand__tag">Notizie, prezzi, ordini</div>
+          <div class="brand__name">Crea Petroli</div>
+          <div class="brand__tag">Prodotti petroliferi • Listini • Ordini</div>
         </div>
       </div>
 
@@ -28,44 +28,58 @@
   <main class="container">
     <section class="hero">
       <div class="hero__left">
-        <h1>Energia e petrolio, in un’unica piattaforma.</h1>
+        <h1>Prodotti petroliferi per mobilità, agricoltura e pesca.</h1>
         <p class="muted">
-          Questa è una demo FE su GitHub Pages. In seguito integreremo database,
-          gestione prezzi e ordini online con un back-end.
+          Demo FE su GitHub Pages. A step successivi integreremo database, backoffice,
+          ordini online e (eventualmente) pagamenti.
         </p>
         <div class="hero__cta">
-          <a class="btn" href="./prezzi.html">Vedi prezzi (demo)</a>
-          <a class="btn btn--ghost" href="./contatti.html">Richiedi info</a>
+          <a class="btn" href="./prezzi.html">Vedi listino (demo)</a>
+          <a class="btn btn--ghost" href="./contatti.html">Richiedi informazioni</a>
         </div>
       </div>
 
       <div class="hero__right card">
-        <div class="card__title">Market snapshot</div>
-        <div class="kpis" id="kpiBox">
-          <!-- riempito da JS -->
-        </div>
+        <div class="card__title">Snapshot listino (demo)</div>
+        <div class="kpis" id="kpiBox"><!-- JS --></div>
         <div class="card__hint muted">
-          Dati mock generati via JavaScript.
+          Valori mock (Step futuro: dati reali da DB).
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="section__head">
-        <h2>Ultime notizie</h2>
-        <div class="muted">Mock feed (Step successivo: DB / API)</div>
+        <h2>Notizie di settore petrolifero</h2>
+        <div class="muted">Feed mock (Step futuro: DB/API)</div>
       </div>
 
-      <div class="grid" id="newsGrid">
-        <!-- riempito da JS -->
+      <div class="grid" id="newsGrid"><!-- JS --></div>
+    </section>
+
+    <section class="section">
+      <div class="section__head">
+        <h2>Recapiti</h2>
+        <div class="muted">Contatti rapidi</div>
+      </div>
+
+      <div class="grid grid--2">
+        <div class="card">
+          <div class="card__title">Telefono</div>
+          <p class="muted">+39 000 000 000</p>
+        </div>
+        <div class="card">
+          <div class="card__title">Email</div>
+          <p class="muted">info@creapetroli.example</p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <div>© <span id="year"></span> OilCo Energy</div>
-      <div class="muted">Demo FE — Mobile friendly</div>
+      <div>© <span id="year"></span> Crea Petroli</div>
+      <div class="muted">Demo FE — responsive web/mobile</div>
     </div>
   </footer>
 
