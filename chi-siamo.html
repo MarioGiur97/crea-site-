@@ -28,61 +28,99 @@
   </header>
 
   <main class="container">
+    <!-- HERO PAGINA -->
+    <section class="section">
+      <div class="aboutHero">
+        <div class="aboutHero__left">
+          <div class="aboutHero__badge">Azienda</div>
+          <h1 class="aboutHero__title">Crea Petroli</h1>
+          <p class="aboutHero__subtitle">
+            Distribuzione e fornitura di <b>prodotti petroliferi</b> per mobilità, agricoltura e motopesca.
+            Questa sezione è un testo provvisorio (lo rifiniamo quando vuoi).
+          </p>
+
+          <div class="aboutHero__cta">
+            <a class="btn" href="./prezzi.html">Consulta i prezzi</a>
+            <a class="btn btn--ghost" href="./contatti.html">Richiedi info</a>
+          </div>
+        </div>
+
+        <div class="aboutHero__right">
+          <div class="miniCard">
+            <div class="miniCard__label">Focus</div>
+            <div class="miniCard__value">Carburanti e prodotti petroliferi</div>
+          </div>
+          <div class="miniCard">
+            <div class="miniCard__label">Clienti</div>
+            <div class="miniCard__value">Privati • Agricoltura • Settore marittimo</div>
+          </div>
+          <div class="miniCard">
+            <div class="miniCard__label">Obiettivo</div>
+            <div class="miniCard__value">Trasparenza listini e servizio affidabile</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEZIONI PRINCIPALI -->
     <section class="section">
       <div class="section__head">
-        <h1>Chi siamo</h1>
-        <div class="muted">Testo provvisorio (lo rifiniamo quando vuoi)</div>
+        <h2>La nostra storia</h2>
+        <div class="muted">Sintesi (placeholder)</div>
       </div>
 
-      <div class="grid grid--2">
-        <div class="card">
-          <div class="card__title">La nostra storia</div>
-          <p class="muted">
-            Crea Petroli nasce come realtà locale specializzata nella distribuzione di carburanti per
-            mobilità e uso professionale. Nel tempo l’azienda consolida una rete di forniture dedicate
-            a clienti privati, imprese agricole e operatori del settore marittimo.
+      <div class="aboutGrid">
+        <article class="card aboutCard">
+          <div class="aboutCard__title">Origini</div>
+          <p class="muted aboutCard__text">
+            Crea Petroli nasce come realtà locale specializzata nella distribuzione di carburanti.
+            Nel tempo consolida una rete di forniture dedicate a clienti privati e professionali.
           </p>
-          <p class="muted">
-            Oggi Crea Petroli si concentra esclusivamente su prodotti petroliferi, con attenzione alla
-            continuità di approvvigionamento, alla trasparenza del listino e all’efficienza del servizio.
+        </article>
+
+        <article class="card aboutCard">
+          <div class="aboutCard__title">Evoluzione</div>
+          <p class="muted aboutCard__text">
+            L’azienda focalizza il proprio business su prodotti petroliferi, con attenzione a
+            continuità di approvvigionamento, tempi di servizio e qualità del supporto.
           </p>
-        </div>
+        </article>
 
-        <div class="card">
-          <div class="card__title">Cosa facciamo</div>
-          <ul class="muted" style="margin:0; padding-left:18px; line-height:1.8">
-            <li>Vendita e gestione listini carburanti</li>
-            <li>Forniture per uso auto, agricolo e motopesca</li>
-            <li>Supporto informativo e gestione richieste</li>
-            <li>Digitalizzazione progressiva di ordini e processi</li>
-          </ul>
-        </div>
+        <article class="card aboutCard">
+          <div class="aboutCard__title">Oggi</div>
+          <p class="muted aboutCard__text">
+            Trasparenza dei listini, gestione richieste e (a step) digitalizzazione:
+            dalla consultazione prezzi fino agli ordini online.
+          </p>
+        </article>
       </div>
-
-      <div class="card" style="margin-top:14px">
-        <div class="card__title">Valori</div>
-        <div class="grid grid--2" style="margin-top:10px">
-          <div class="card" style="background: rgba(255,255,255,.05)">
-            <div class="card__title">Affidabilità</div>
-            <div class="muted">Continuità e puntualità nel servizio.</div>
-          </div>
-          <div class="card" style="background: rgba(255,255,255,.05)">
-            <div class="card__title">Trasparenza</div>
-            <div class="muted">Listini chiari e aggiornamenti tracciati.</div>
-          </div>
-        </div>
-      </div>
-
     </section>
-  </main>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div>© <span id="year"></span> Crea Petroli</div>
-      <div class="muted">Demo FE</div>
-    </div>
-  </footer>
+    <section class="section">
+      <div class="section__head">
+        <h2>Cosa facciamo</h2>
+        <div class="muted">Servizi principali</div>
+      </div>
 
-  <script src="./assets/app.js"></script>
-</body>
-</html>
+      <div class="aboutGrid2">
+        <div class="card featureCard">
+          <div class="featureCard__icon">1</div>
+          <div class="featureCard__content">
+            <div class="featureCard__title">Listini carburanti</div>
+            <div class="muted">Pubblicazione e aggiornamento del listino giornaliero.</div>
+          </div>
+        </div>
+
+        <div class="card featureCard">
+          <div class="featureCard__icon">2</div>
+          <div class="featureCard__content">
+            <div class="featureCard__title">Forniture dedicate</div>
+            <div class="muted">Soluzioni per uso auto, agricolo e motopesca.</div>
+          </div>
+        </div>
+
+        <div class="card featureCard">
+          <div class="featureCard__icon">3</div>
+          <div class="featureCard__content">
+            <div class="featureCard__title">Assistenza e richieste</div>
+            <div class="muted">Canale contatti per informazioni e supporto
