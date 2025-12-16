@@ -1,8 +1,9 @@
 (function () {
+  /* FOOTER YEAR */
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // KPI (index2)
+  /* KPI HOME */
   const kpiBox = document.getElementById("kpiBox");
   if (kpiBox) {
     const rnd = (min, max) => (Math.random() * (max - min) + min);
@@ -21,60 +22,89 @@
     `).join("");
   }
 
-  // NEWS (index2) - box unico scrollabile + ricerca
+  /* =========================
+     ULTIME NOTIZIE – CONTENUTI ESEMPLIFICATIVI
+     ========================= */
+
   const newsListEl = document.getElementById("newsList");
   const newsQueryEl = document.getElementById("newsQuery");
 
   const NEWS = [
     {
-      title: "Mercato carburanti: dinamiche di breve periodo",
+      title: "Andamento dei prezzi dei carburanti nella settimana corrente",
       tag: "Carburanti",
       date: "Oggi",
-      snippet: "Sintesi placeholder: movimenti di prezzo e fattori di breve periodo sul mercato dei carburanti.",
+      snippet:
+        "Nel corso della settimana i prezzi dei carburanti mostrano una moderata volatilità, "
+        + "influenzata dall’andamento delle quotazioni internazionali e dai costi di approvvigionamento. "
+        + "Il mercato resta stabile, con variazioni contenute sui principali prodotti petroliferi.",
       url: "#"
     },
     {
-      title: "Logistica: impatti su approvvigionamento e distribuzione",
+      title: "Logistica e approvvigionamento: focus sulla continuità delle forniture",
       tag: "Supply chain",
       date: "Questa settimana",
-      snippet: "Sintesi placeholder: disponibilità e tempi di consegna possono influire sulla distribuzione.",
+      snippet:
+        "La gestione della catena di fornitura resta un elemento centrale per garantire continuità "
+        + "e affidabilità del servizio. Le attività di pianificazione logistica consentono di "
+        + "ridurre l’impatto delle oscillazioni di mercato e assicurare disponibilità di prodotto.",
       url: "#"
     },
     {
-      title: "Scenario macro e prezzi: fattori principali",
+      title: "Scenario macroeconomico e impatti sul mercato petrolifero",
       tag: "Mercati",
       date: "Questa settimana",
-      snippet: "Sintesi placeholder: fattori macro e volatilità contribuiscono alla formazione dei prezzi.",
+      snippet:
+        "Fattori macroeconomici e dinamiche internazionali continuano a influenzare il mercato petrolifero. "
+        + "Le quotazioni risentono del contesto globale, con attenzione particolare alla domanda e "
+        + "alle politiche di produzione.",
       url: "#"
     },
     {
-      title: "Focus agricoltura: stagionalità e consumi",
+      title: "Settore agricolo: stagionalità e utilizzo dei carburanti",
       tag: "Agricolo",
       date: "Questo mese",
-      snippet: "Sintesi placeholder: variazioni di consumo e stagionalità nell’uso agricolo dei carburanti.",
+      snippet:
+        "Nel periodo stagionale aumenta la domanda di carburanti per uso agricolo. "
+        + "La programmazione delle forniture e la trasparenza dei listini rappresentano "
+        + "un fattore chiave per supportare le attività del settore.",
       url: "#"
     },
     {
-      title: "Motopesca: trend e disponibilità prodotto",
+      title: "Motopesca: disponibilità del gasolio e trend di consumo",
       tag: "Motopesca",
       date: "Questo mese",
-      snippet: "Sintesi placeholder: domanda del settore e disponibilità del prodotto per motopesca.",
+      snippet:
+        "Il comparto motopesca richiede continuità di approvvigionamento e stabilità dei prezzi. "
+        + "Le dinamiche di consumo seguono l’andamento stagionale e le attività operative delle flotte.",
       url: "#"
     },
     {
-      title: "Normative e compliance: aggiornamenti di settore",
+      title: "Aggiornamenti normativi e best practice di settore",
       tag: "Normative",
       date: "Questo trimestre",
-      snippet: "Sintesi placeholder: aggiornamenti e best practice di compliance nel settore petrolifero.",
+      snippet:
+        "Il quadro normativo del settore petrolifero è in costante evoluzione. "
+        + "Rimanere aggiornati sulle disposizioni vigenti è fondamentale per garantire "
+        + "operatività conforme e processi trasparenti.",
       url: "#"
-    },
+    }
   ];
 
   function renderNews(list) {
     if (!newsListEl) return;
 
+    if (!list.length) {
+      newsListEl.innerHTML = `
+        <div style="padding:14px; color: rgba(245,255,249,.72)">
+          Nessun risultato trovato.
+        </div>
+      `;
+      return;
+    }
+
     newsListEl.innerHTML = list.map(n => `
-      <a class="newsRow" href="${n.url}" role="listitem" title="Apri articolo (demo)">
+      <a class="newsRow" href="${n.url}" title="Apri articolo (demo)">
         <div class="newsRow__meta">
           <div class="newsRow__date">${n.date}</div>
           <div class="newsRow__tag">${n.tag}</div>
@@ -85,25 +115,20 @@
         </div>
       </a>
     `).join("");
-
-    if (!list.length) {
-      newsListEl.innerHTML = `
-        <div style="padding:12px; color: rgba(245,255,249,.72)">
-          Nessun risultato per la ricerca (demo).
-        </div>
-      `;
-    }
   }
 
   if (newsListEl) renderNews(NEWS);
 
   function applyNewsFilter() {
     const q = (newsQueryEl?.value || "").trim().toLowerCase();
-    if (!q) return renderNews(NEWS);
+    if (!q) {
+      renderNews(NEWS);
+      return;
+    }
 
     const filtered = NEWS.filter(n => {
-      const hay = `${n.title} ${n.tag} ${n.snippet}`.toLowerCase();
-      return hay.includes(q);
+      const haystack = `${n.title} ${n.tag} ${n.snippet}`.toLowerCase();
+      return haystack.includes(q);
     });
 
     renderNews(filtered);
@@ -113,7 +138,10 @@
     newsQueryEl.addEventListener("input", applyNewsFilter);
   }
 
-  // PREZZI: tabella mock + edit demo
+  /* =========================
+     PREZZI (come prima)
+     ========================= */
+
   const pricesTable = document.getElementById("pricesTable");
   const btnRefresh = document.getElementById("btnRefresh");
   const btnEdit = document.getElementById("btnEdit");
@@ -148,64 +176,4 @@
   if (pricesTable) renderPrices();
   if (btnRefresh) btnRefresh.addEventListener("click", renderPrices);
 
-  if (btnEdit) {
-    btnEdit.addEventListener("click", () => {
-      const prices = window.__prices || [];
-      if (!prices.length) return;
-
-      const product = prompt("Quale prodotto vuoi modificare? (es. Gasolio Auto)");
-      if (!product) return;
-
-      const row = prices.find(p => p.product.toLowerCase() === product.toLowerCase());
-      if (!row) return alert("Prodotto non trovato (demo).");
-
-      const newPriceStr = prompt(
-        `Nuovo prezzo per ${row.product} (${row.currency}/${row.unit})`,
-        String(row.price.toFixed(3))
-      );
-      if (!newPriceStr) return;
-
-      const newPrice = Number(newPriceStr.replace(",", "."));
-      if (!Number.isFinite(newPrice) || newPrice <= 0) return alert("Prezzo non valido.");
-
-      row.price = newPrice;
-
-      const tbody = pricesTable.querySelector("tbody");
-      const today = new Date().toISOString().slice(0, 10);
-      tbody.innerHTML = prices.map(r => `
-        <tr>
-          <td>${r.product}</td>
-          <td>${r.unit}</td>
-          <td>${r.currency}</td>
-          <td class="right"><b>${r.price.toFixed(3)}</b></td>
-          <td>${today}</td>
-        </tr>
-      `).join("");
-    });
-  }
-
-  // CONTATTI: demo submit + mailto
-  const contactForm = document.getElementById("contactForm");
-  const contactStatus = document.getElementById("contactStatus");
-
-  if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const fd = new FormData(contactForm);
-      const name = String(fd.get("name") || "");
-      const email = String(fd.get("email") || "");
-      const phone = String(fd.get("phone") || "");
-      const message = String(fd.get("message") || "");
-
-      if (contactStatus) contactStatus.textContent = "Richiesta acquisita (demo). Apertura client mail…";
-
-      const subject = encodeURIComponent("Richiesta informazioni — Crea Petroli");
-      const body = encodeURIComponent(
-        `Nome: ${name}\nEmail: ${email}\nTelefono: ${phone}\n\nMessaggio:\n${message}\n`
-      );
-
-      window.location.href = `mailto:info@creapetroli.example?subject=${subject}&body=${body}`;
-    });
-  }
 })();
