@@ -7,6 +7,26 @@
   <link rel="stylesheet" href="./assets/styles.css" />
 </head>
 <body>
+  <!-- Overlay + Drawer (mobile) -->
+  <div id="drawerOverlay" class="drawerOverlay" aria-hidden="true"></div>
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer__head">
+      <div class="drawer__title">Menu</div>
+      <button id="btnMenuClose" class="drawer__close" type="button" aria-label="Chiudi menu">×</button>
+    </div>
+    <div class="drawer__body">
+      <a class="drawer__link" href="./index.html">Start</a>
+      <a class="drawer__link drawer__link--active" href="./index2.html">Home</a>
+      <a class="drawer__link" href="./chi-siamo.html">Chi siamo</a>
+      <a class="drawer__link" href="./prezzi.html">Prezzi</a>
+      <a class="drawer__link" href="./contatti.html">Contatti</a>
+
+      <div class="drawer__hint">
+        Suggerimento: da mobile usa il menu per navigare. (Demo FE)
+      </div>
+    </div>
+  </aside>
+
   <header class="topbar">
     <div class="container topbar__inner">
       <div class="brand">
@@ -17,6 +37,7 @@
         </div>
       </div>
 
+      <!-- Desktop nav -->
       <nav class="nav">
         <a class="nav__link" href="./index.html">Start</a>
         <a class="nav__link nav__link--active" href="./index2.html">Home</a>
@@ -24,6 +45,13 @@
         <a class="nav__link" href="./prezzi.html">Prezzi</a>
         <a class="nav__link" href="./contatti.html">Contatti</a>
       </nav>
+
+      <!-- Mobile hamburger -->
+      <button id="btnMenuOpen" class="hamburger" type="button" aria-label="Apri menu" aria-expanded="false">
+        <span class="hamburger__bar"></span>
+        <span class="hamburger__bar"></span>
+        <span class="hamburger__bar"></span>
+      </button>
     </div>
   </header>
 
@@ -48,7 +76,6 @@
       </div>
     </section>
 
-    <!-- ULTIME NOTIZIE: UN SOLO BOX SCORRIBILE -->
     <section class="section">
       <div class="section__head">
         <h2>Ultime notizie</h2>
@@ -101,7 +128,7 @@
 
   <script src="./assets/app.js"></script>
 
-  <!-- Stili locali SOLO per la news box (non devi toccare styles.css) -->
+  <!-- Stili locali SOLO per news box -->
   <style>
     .newsBox { padding: 16px; }
     .newsBox__top{
@@ -120,7 +147,7 @@
       outline: none;
     }
     .newsBox__list{
-      max-height: 320px;          /* scorribile */
+      max-height: 320px;
       overflow: auto;
       border-radius: 14px;
       border: 1px solid rgba(245,255,249,.14);
@@ -165,17 +192,13 @@
       flex-direction:column;
       gap:6px;
     }
-    .newsRow__title{
-      font-weight:900;
-      line-height: 1.25;
-    }
+    .newsRow__title{ font-weight:900; line-height: 1.25; }
     .newsRow__snippet{
       font-size: 13px;
       color: rgba(245,255,249,.72);
       line-height: 1.5;
     }
     .newsBox__footer{ margin-top: 10px; font-size: 12px; }
-
     @media (max-width: 520px){
       .newsRow{ flex-direction: column; }
       .newsRow__meta{ min-width: auto; flex-direction: row; align-items:center; }
