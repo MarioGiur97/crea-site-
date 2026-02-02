@@ -257,7 +257,7 @@
         `Nome: ${name}\nEmail: ${email}\nTelefono: ${phone}\n\nMessaggio:\n${message}\n`
       );
 
-      window.location.href = `mailto:info@creapetroli.example?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:creapetroli@gmail.com?subject=${subject}&body=${body}`;
     });
   }
 })();
